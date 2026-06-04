@@ -36,13 +36,18 @@
 return
 -- Using Lazy
 {
-	"navarasu/onedark.nvim",
-	version = "v0.1.0", -- Pin to legacy version
+	"sainnhe/everforest",
 	priority = 1000,
 	config = function()
-		require('onedark').setup {
-			style = 'darker'
+		vim.g.everforest_background = 'hard'
+		vim.g.everforest_better_performance = 1
+		vim.g.everforest_colors_override = {
+			bg0 = '#1E2326',
+			bg1 = '#252D2F',
+			bg2 = '#2E3638',
+			bg3 = '#384043',
+			bg4 = '#404649',
 		}
-		require('onedark').load()
+		vim.cmd.colorscheme('everforest')
 	end
 }

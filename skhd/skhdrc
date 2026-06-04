@@ -1,11 +1,15 @@
-# --- Focus Windows (Cmd + H/J/K/L) ---
-cmd - h : yabai -m window --focus west
-cmd - j : yabai -m window --focus south
-cmd - k : yabai -m window --focus north
-cmd - l : yabai -m window --focus east
+# --- Focus Windows (Control + H/J/K/L) ---
+ctrl - h : yabai -m window --focus west
+ctrl - j : yabai -m window --focus south
+ctrl - k : yabai -m window --focus north
+ctrl - l : yabai -m window --focus east
 
-# --- Swap Windows (Shift + Cmd + H/J/K/L) ---
-shift + cmd - h : yabai -m window --swap west
-shift + cmd - j : yabai -m window --swap south
-shift + cmd - k : yabai -m window --swap north
-shift + cmd - l : yabai -m window --swap east
+# --- Swap Windows (Shift + Control + H/J/K/L) ---
+shift + ctrl - h : yabai -m window --swap west
+shift + ctrl - j : yabai -m window --swap south
+shift + ctrl - k : yabai -m window --swap north
+shift + ctrl - l : yabai -m window --swap east
+
+# --- Toggle Window States (Control + E / Control + T) ---
+ctrl - e : yabai -m window --toggle zoom-parent
+ctrl - t : yabai -m window --toggle floa

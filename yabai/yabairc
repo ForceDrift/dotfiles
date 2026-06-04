@@ -28,3 +28,4 @@ yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^java$" manage=off
 yabai -m rule --add app="^Claude$" manage=off
 
+yabai -m config window_border off

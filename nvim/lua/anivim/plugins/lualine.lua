@@ -8,22 +8,25 @@ return {
 
 		local theme = {
 			normal = {
-				a = { fg = colors.black, bg = colors.blue, gui = 'bold' },
-				b = { fg = colors.black, bg = colors.white },
+				a = { fg = colors.black, bg = colors.green, gui = 'bold' },
+				b = { fg = colors.white, bg = colors.bg_light },
 				c = { fg = colors.white, bg = colors.black },
-				z = { fg = colors.black, bg = colors.blue },
+				z = { fg = colors.black, bg = colors.green },
 			},
 			insert = {
-				a = { fg = colors.black, bg = colors.yellow, gui = 'bold' },
-				b = { fg = colors.black, bg = colors.white },
+				a = { fg = colors.black, bg = colors.blue, gui = 'bold' },
+				b = { fg = colors.white, bg = colors.bg_light },
+				z = { fg = colors.black, bg = colors.blue },
 			},
 			visual = {
-				a = { fg = colors.black, bg = colors.orange, gui = 'bold' },
-				b = { fg = colors.black, bg = colors.white },
+				a = { fg = colors.black, bg = colors.purple, gui = 'bold' },
+				b = { fg = colors.white, bg = colors.bg_light },
+				z = { fg = colors.black, bg = colors.purple },
 			},
 			replace = {
-				a = { fg = colors.black, bg = colors.green, gui = 'bold' },
-				b = { fg = colors.black, bg = colors.white },
+				a = { fg = colors.black, bg = colors.red, gui = 'bold' },
+				b = { fg = colors.white, bg = colors.bg_light },
+				z = { fg = colors.black, bg = colors.red },
 			},
 		}
 
