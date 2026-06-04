@@ -8,3 +8,12 @@ Clone this repository:
 git clone https://github.com/ForceDrift/dotfiles ~/.dotfiles
 cd ~/.dotfiles
 stow .
+
+## Ghostty Config Background Translucent 
+```bash
+
+ background-blur = true
+ background-opacity = 0.75
+ background-blur-radius = 40
+
+```
