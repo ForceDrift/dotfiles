@@ -1,41 +1,45 @@
-return {
-	{
-		'saghen/blink.cmp',
-		dependencies = { 'rafamadriz/friendly-snippets' },
-		version = 'v0.*',
+	return {
+		{
+			'saghen/blink.cmp',
+			dependencies = { 'rafamadriz/friendly-snippets' },
+			version = 'v0.*',
 
-		---@module 'blink.cmp'
-		---@type blink.cmp.Config
-		opts = {
-			keymap = {
-				preset = 'enter',
-				['<Tab>'] = { 'select_next', 'fallback' },
-				['<S-Tab>'] = { 'select_prev', 'fallback' },
-			},
-			appearance = {
-				nerd_font_variant = 'mono'
-			},
+			---@module 'blink.cmp'
+			---@type blink.cmp.Config
+			opts = {
+				keymap = {
+					preset = 'enter',
+					['<Tab>'] = { 'select_next', 'fallback' },
+					['<S-Tab>'] = { 'select_prev', 'fallback' },
+				},
+				appearance = {
+					nerd_font_variant = 'mono'
+				},
 
-			completion = {
-				documentation = {
-					auto_show = true,
-					auto_show_delay_ms = 200,
+				completion = {
+					documentation = {
+						auto_show = true,
+						auto_show_delay_ms = 200,
+						window = { border = 'rounded' }
+					},
+					menu = { border = 'rounded' },
+				},
+
+				signature = {
+					enabled = true,
 					window = { border = 'rounded' }
 				},
-				menu = { border = 'rounded' },
-			},
 
-			signature = {
-				enabled = true,
-				window = { border = 'rounded' }
-			},
+				sources = {
+					default = { 'lsp', 'path', 'snippets', 'buffer' },
+				},
 
-			sources = {
-				default = { 'lsp', 'path', 'snippets', 'buffer' },
+				fuzzy = { implementation = "prefer_rust_with_warning" }
 			},
-
-			fuzzy = { implementation = "prefer_rust_with_warning" }
+			opts_extend = { "sources.default" },
+			config = function(_, opts)
+				require("blink.cmp").setup(opts)
+				vim.api.nvim_set_hl(0, 'BlinkCmpMenuSelection', { bg = '#384043' })
+			end,
 		},
-		opts_extend = { "sources.default" }
-	},
-}
+	}
