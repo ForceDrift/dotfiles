@@ -13,8 +13,8 @@ map("n", "<RIGHT>", "<NOP>", opts)
 
 map("t", "jk", [[<C-\><C-n>]], { desc = "Exit Terminal Mode" })
 map("n", "<leader>nt", "<cmd>exe v:count1 . 'ToggleTerm'<cr>", { desc = "New Terminal" })
-map("n", "<C-h>", ":bprevious<CR>")
-map("n", "<C-l>", ":bnext<CR>")
+map("n", "<D-h>", ":bprevious<CR>")
+map("n", "<D-l>", ":bnext<CR>")
 
 map("n", "<A-h>", "<C-w>h")
 map("n", "<A-l>", "<C-w>l")
