@@ -1,0 +1,30 @@
+#!/usr/bin/env sh
+
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+# Set the default tiling option to bsp
+yabai -m config layout bsp
+
+# Set padding between windows
+yabai -m config top_padding     10
+yabai -m config bottom_padding  10
+yabai -m config left_padding    10
+yabai -m config right_padding   10
+yabai -m config window_gap      10
+
+yabai -m config auto_balance off
+yabai -m config mouse_modifier fn
+yabai -m config mouse_action1 move
+yabai -m config mouse_action2 resize
+yabai -m config focus_follows_mouse autoraise
+yabai -m config mouse_follows_focus off
+yabai -m config window_shadow off
+yabai -m config skip_window_focus_animation off
+
+# Add exceptions to tiling
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="^java$" manage=off
+yabai -m rule --add app="^Claude$" manage=off
+
