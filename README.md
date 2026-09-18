@@ -41,6 +41,7 @@ Without stow, symlink it manually (same result):
 
 ```bash
 git clone https://github.com/ForceDrift/dotfiles.git ~/.dotfiles
+mkdir -p ~/.config
 ln -s ~/.dotfiles/nvim/.config/nvim ~/.config/nvim
 ```
 
