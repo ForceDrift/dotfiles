@@ -23,25 +23,24 @@ local function run_cpp_and_cleanup()
 	local dir = vim.fn.expand("%:p:h")
 	local current_file = vim.fn.expand("%:t")
 	local file_ext = vim.fn.expand("%:e")
-	local output_name = "temp_runner" -- Constant name for easier cleanup
-	local compiler = "g++"
-	local pattern = "*.cpp"
 
-	if file_ext == "c" or file_ext == "h" then
-		compiler = "gcc"
-		pattern = "*.c"
+	local cmd
+	if file_ext == "cpp" then
+		cmd = string.format(
+			"cd %s && g++ %s -o out && ./out",
+			dir,
+			current_file
+		)
+	elseif file_ext == "c" then
+		cmd = string.format(
+			"cd %s && gcc -std=c99 -Wall %s -o out && ./out",
+			dir,
+			current_file
+		)
+	else
+		vim.notify("Not a valid .c or .cpp file", vim.log.levels.WARN)
+		return
 	end
-
-	local cmd = string.format(
-		"cd %s && %s %s -o temp_exec && ./temp_exec ; rm temp_exec",
-		dir,
-		compiler,
-		current_file
-	-- pattern,
-	-- output_name,
-	-- output_name,
-	-- output_name
-	)
 
 	require("toggleterm").exec(cmd)
 end
@@ -49,13 +48,12 @@ end
 local M = {
 	["cpp"] = true,
 	["c"] = true,
-	["h"] = true,
 }
 
 map("n", "<leader>rr", function()
 	if M[vim.bo.filetype] then
 		run_cpp_and_cleanup()
 	else
-		vim.notify("Not a Valid C, H, or C++ file", vim.log.levels.WARN)
+		vim.notify("Not a Valid C or C++ file", vim.log.levels.WARN)
 	end
-end, { desc = "Compile, Run, and Cleanup C++ in Float" })
+end, { desc = "Compile and Run C/C++ in Float" })
