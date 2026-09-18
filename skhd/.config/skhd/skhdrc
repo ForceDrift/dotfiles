@@ -13,3 +13,5 @@ shift + ctrl - l : yabai -m window --swap east
 # --- Toggle Window States (Control + E / Control + T) ---
 ctrl - e : yabai -m window --toggle zoom-parent
 ctrl - t : yabai -m window --toggle floa
+
+

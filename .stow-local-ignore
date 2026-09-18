@@ -1,0 +1,7 @@
+# Do not symlink these top-level repo entries into $HOME
+^\.DS_Store$
+^\.git$
+^\.gitignore$
+^\.stowrc$
+^\.stow-local-ignore$
+^README\.md$

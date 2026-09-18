@@ -1,6 +1,4 @@
 theme = Everforest Dark Hard 
-background-opacity = 0.80
-background-blur = true
 
 window-padding-x = 10
 window-padding-y = 10
@@ -12,8 +10,6 @@ term = xterm-256color
 
 font-size = 13
 
+background-opacity = 0.9
 
- background-blur = true
- background-opacity = 0.75
- background-blur-radius = 40
 
