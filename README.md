@@ -46,15 +46,21 @@ stow */
 
 ## Install just nvim
 
-Only want Neovim? Stow a single package:
+Only want Neovim? With stow:
 
 ```bash
 git clone git@github.com:ForceDrift/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-stow nvim
+cd ~/.dotfiles && stow nvim
 ```
 
-Then set up the Python venv that `nvim` needs:
+Without stow, symlink it manually (same result):
+
+```bash
+git clone git@github.com:ForceDrift/dotfiles.git ~/.dotfiles
+ln -s ~/.dotfiles/nvim/.config/nvim ~/.config/nvim
+```
+
+Either way, set up the Python venv that `nvim` needs:
 
 ```bash
 python3 -m venv ~/.local/share/nvim/venv
