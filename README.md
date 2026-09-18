@@ -2,6 +2,8 @@
 
 My macOS dotfiles, managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
+<img width="1470" height="845" alt="Screenshot 2026-06-04 at 12 08 37 AM" src="https://github.com/user-attachments/assets/b0121b8e-af21-4c2b-936b-5adcd550f02e" />
+
 ## What's inside
 
 | Package   | Installs to                        | Notes                                  |
@@ -41,6 +43,38 @@ stow */
 
 `stow` symlinks each file into `$HOME`, so `~/.config/alacritty` is a symlink into
 `~/.dotfiles/alacritty/.config/alacritty`.
+
+## Install just nvim
+
+Only want Neovim? Stow a single package:
+
+```bash
+git clone git@github.com:ForceDrift/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+stow nvim
+```
+
+Then set up the Python venv that `nvim` needs:
+
+```bash
+python3 -m venv ~/.local/share/nvim/venv
+~/.local/share/nvim/venv/bin/pip install pynvim
+```
+
+## Update
+
+Configs are symlinked into this repo, so existing installs just pull:
+
+```bash
+cd ~/.dotfiles && git pull
+```
+
+If an update adds a new package, stow it too (install everything or just the new one):
+
+```bash
+cd ~/.dotfiles && stow */
+# or: stow <newpackage>
+```
 
 ## Post-install
 
