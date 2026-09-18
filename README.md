@@ -4,23 +4,6 @@ My macOS dotfiles, managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
 <img width="1470" height="845" alt="Screenshot 2026-06-04 at 12 08 37 AM" src="https://github.com/user-attachments/assets/b0121b8e-af21-4c2b-936b-5adcd550f02e" />
 
-## What's inside
-
-| Package   | Installs to                        | Notes                                  |
-|-----------|------------------------------------|----------------------------------------|
-| `alacritty` | `~/.config/alacritty/`           |                                        |
-| `ghostty`   | `~/.config/ghostty/`             |                                        |
-| `git`       | `~/.gitconfig`                   |                                        |
-| `kitty`     | `~/.config/kitty/`               |                                        |
-| `nvim`      | `~/.config/nvim/`                | [AniVim](https://github.com/ForceDrift/AniVim) setup |
-| `opencode`  | `~/.config/opencode/`            | plugins (`package.json`), not `node_modules` |
-| `sketchybar`| `~/.config/sketchybar/`          | needs `make` in `helpers/`             |
-| `skhd`      | `~/.config/skhd/skhdrc`          |                                        |
-| `starship`  | `~/.config/starship.toml`        |                                        |
-| `yabai`     | `~/.config/yabai/yabairc`        |                                        |
-| `zathura`   | `~/.config/zathura/`             |                                        |
-| `zsh`       | `~/.zshrc`                       |                                        |
-
 ## Requirements
 
 - macOS
@@ -116,10 +99,3 @@ These live in `~/.config` but are **not** tracked (credentials / machine-specifi
 `gcloud/`, `gh/`, `github-copilot/`, `iterm2/`, `raycast/`, plus any `venv/` and
 `node_modules/`.
 
-## Ghostty translucent background
-
-```ini
-background-blur = true
-background-opacity = 0.75
-background-blur-radius = 40
-```
