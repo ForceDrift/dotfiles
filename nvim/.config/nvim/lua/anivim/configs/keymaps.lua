@@ -24,17 +24,22 @@ local function run_cpp_and_cleanup()
 	local current_file = vim.fn.expand("%:t")
 	local file_ext = vim.fn.expand("%:e")
 
+	local cc = vim.fn.executable("gcc-14") == 1 and "gcc-14" or "gcc"
+	local cxx = vim.fn.executable("g++-14") == 1 and "g++-14" or "g++"
+
 	local cmd
 	if file_ext == "cpp" then
 		cmd = string.format(
-			"cd %s && g++ %s -o out && ./out",
+			"cd %s && %s %s -o out && ./out",
 			dir,
+			cxx,
 			current_file
 		)
 	elseif file_ext == "c" then
 		cmd = string.format(
-			"cd %s && gcc -std=c99 -Wall %s -o out && ./out",
+			"cd %s && %s -std=c99 -Wall %s -o out && ./out",
 			dir,
+			cc,
 			current_file
 		)
 	else
