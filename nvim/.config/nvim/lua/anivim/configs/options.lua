@@ -1,6 +1,12 @@
 local opt = vim.opt
 vim.schedule(function()
-    vim.opt.clipboard = "unnamedplus"
+	local has_clipboard_provider = vim.fn.executable("wl-copy") == 1
+		or vim.fn.executable("xclip") == 1
+		or vim.fn.executable("xsel") == 1
+		or vim.fn.has("mac") == 1
+	if has_clipboard_provider then
+		vim.opt.clipboard = "unnamedplus"
+	end
 end)
 
 local colors = require("anivim.configs.colors").palette
