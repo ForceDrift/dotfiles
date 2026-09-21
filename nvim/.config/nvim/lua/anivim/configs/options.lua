@@ -1,10 +1,21 @@
 local opt = vim.opt
 vim.schedule(function()
-	local has_clipboard_provider = vim.fn.executable("wl-copy") == 1
-		or vim.fn.executable("xclip") == 1
-		or vim.fn.executable("xsel") == 1
-		or vim.fn.has("mac") == 1
-	if has_clipboard_provider then
+	local has = vim.fn.executable
+	if has("wl-copy") == 1 or has("xclip") == 1 or has("xsel") == 1 or vim.fn.has("mac") == 1 then
+		vim.opt.clipboard = "unnamedplus"
+	elseif has("tmux") == 1 then
+		vim.g.clipboard = {
+			name = "tmux",
+			copy = {
+				["+"] = { "tmux", "load-buffer", "-" },
+				["*"] = { "tmux", "load-buffer", "-" },
+			},
+			paste = {
+				["+"] = { "tmux", "save-buffer", "-" },
+				["*"] = { "tmux", "save-buffer", "-" },
+			},
+			cache_enabled = true,
+		}
 		vim.opt.clipboard = "unnamedplus"
 	end
 end)
