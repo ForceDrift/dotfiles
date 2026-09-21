@@ -1,7 +1,11 @@
 local opt = vim.opt
 vim.schedule(function()
 	local has = vim.fn.executable
-	if has("wl-copy") == 1 or has("xclip") == 1 or has("xsel") == 1 or vim.fn.has("mac") == 1 then
+	local has_display = vim.env.DISPLAY ~= nil and vim.env.DISPLAY ~= ""
+		or vim.env.WAYLAND_DISPLAY ~= nil and vim.env.WAYLAND_DISPLAY ~= ""
+	local use_system = vim.fn.has("mac") == 1
+		or has_display and (has("wl-copy") == 1 or has("xclip") == 1 or has("xsel") == 1)
+	if use_system then
 		vim.opt.clipboard = "unnamedplus"
 	elseif has("tmux") == 1 then
 		vim.g.clipboard = {
